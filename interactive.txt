@@ -1,0 +1,41 @@
+# INTERACTIVE MODE
+# Go to scratch directory
+
+  >> srun -n1 --mem=2G --pty -p gpu-standard --nodelist=gpu02 --gres=gpu:gtx1080ti:1 bash -l
+  >> module load miniconda
+  >> source activate ~/gan_env/
+  >> python basic_main.py
+
+
+#### SOME CODES ###
+
+# Cluster summary
+	cluster-info
+
+# Cluster partition
+	sinfo -s
+
+# Problematic nodes
+	sinfo -R
+
+scontrol show partitions
+
+scontrol show nodes gpu02
+
+# Display submitted jobs
+	sacct
+
+# Cancel Submitted jobs
+	scancel [jobid]
+
+# Hold/Release jobs
+	scontrol hold [jobid]
+	scontrol release [jobid]
+
+# Submitting batch jobs
+	sbatch script.sh
+
+# modules
+	module purge
+	module list
+	module load miniconda/miniconda2
